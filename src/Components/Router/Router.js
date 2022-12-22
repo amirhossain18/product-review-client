@@ -1,8 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import About from "../About/About";
+import Addproducts from "../AddProducts/Addproducts";
+import AllProducts from "../AllProducts/AllProducts";
 import Home from "../Home/Home";
 import Login from "../Login/Login";
+import Regestration from "../Login/Regestration";
 import Main from "../Main/Main";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Review from "../Review/Review";
 
  export const router= createBrowserRouter([
@@ -21,11 +25,23 @@ import Review from "../Review/Review";
             },
             {
                 path:'/review',
-                element:<Review></Review>
+                element:<PrivateRoute><Review></Review></PrivateRoute>
             },
             {
                 path:'/login',
                 element:<Login></Login>
+            },
+            {
+                path:'/rigester',
+                element:<Regestration></Regestration>
+            },
+            {
+                path:'/products/add', 
+                element:<Addproducts></Addproducts>
+            },
+            {
+                path:'/products/',
+                element:<AllProducts></AllProducts>
             }
         ]
     }
