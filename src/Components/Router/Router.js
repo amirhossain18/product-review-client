@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import About from "../About/About";
 import Addproducts from "../AddProducts/Addproducts";
 import AllProducts from "../AllProducts/AllProducts";
+import Checkout from "../Checkout/Checkout";
 import Home from "../Home/Home";
 import Login from "../Login/Login";
 import Regestration from "../Login/Regestration";
@@ -42,6 +43,11 @@ import Review from "../Review/Review";
             {
                 path:'/products/',
                 element:<AllProducts></AllProducts>
+            },
+            {
+                path:'/products/checkout/:id',
+                element:<Checkout></Checkout>,
+                loader:  ({params})=> fetch(`http://localhost:5000/products/${params.id}`)
             }
         ]
     }
